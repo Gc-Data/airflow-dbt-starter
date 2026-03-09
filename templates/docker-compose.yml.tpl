@@ -52,14 +52,14 @@ services:
       - -c
       - |
         airflow db migrate
+        airflow users delete --username '${airflow_admin_user}' 2>/dev/null || true
         airflow users create \
           --username '${airflow_admin_user}' \
           --password '${airflow_admin_password}' \
           --firstname Admin \
           --lastname User \
           --role Admin \
-          --email admin@localhost \
-          || true
+          --email admin@localhost
         echo "Init complete"
     restart: "no"
 

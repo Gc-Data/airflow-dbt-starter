@@ -14,7 +14,7 @@
     "author": "GC Data",
     "license": "MIT",
     "paid": false,
-    "repository": "https://gcdatac.com/templates",
+    "repository": "https://github.com/Gc-Data/gc-data-templates",
     "tags": ["airflow", "dbt", "postgresql", "docker", "data-engineering"]
   },
 
