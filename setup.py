@@ -23,6 +23,7 @@ import signal
 import socket
 import string
 import subprocess
+from urllib.parse import quote as urlquote
 import sys
 import threading
 import time
@@ -656,6 +657,14 @@ class WizardHandler(http.server.BaseHTTPRequestHandler):
             # Auto-generate Fernet key if set to "auto"
             if values.get("airflow_fernet_key", "").lower() == "auto":
                 values["airflow_fernet_key"] = self._generate_fernet_key()
+
+            # URL-encode password for safe inclusion in SQLAlchemy connection strings
+            if values.get("postgres_password"):
+                values["postgres_password_urlsafe"] = urlquote(
+                    str(values["postgres_password"]), safe=""
+                )
+            else:
+                values["postgres_password_urlsafe"] = ""
 
             config_templates = self.wizard_config.get("config_templates", [])
             files_generated = []

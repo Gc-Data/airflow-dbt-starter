@@ -21,9 +21,9 @@ services:
     container_name: starter-postgres
     restart: unless-stopped
     environment:
-      POSTGRES_USER: ${postgres_user}
-      POSTGRES_PASSWORD: ${postgres_password}
-      POSTGRES_DB: ${postgres_db}
+      POSTGRES_USER: "${postgres_user}"
+      POSTGRES_PASSWORD: "${postgres_password}"
+      POSTGRES_DB: "${postgres_db}"
     ports:
       - "${postgres_port}:5432"
     volumes:
@@ -53,8 +53,8 @@ services:
       - |
         airflow db migrate
         airflow users create \
-          --username ${airflow_admin_user} \
-          --password ${airflow_admin_password} \
+          --username '${airflow_admin_user}' \
+          --password '${airflow_admin_password}' \
           --firstname Admin \
           --lastname User \
           --role Admin \
