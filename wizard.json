@@ -1,0 +1,270 @@
+{
+  "$schema": "gc-data-template-wizard-v1",
+
+  "template": {
+    "name": {
+      "pt-BR": "Airflow + dbt Starter",
+      "en": "Airflow + dbt Starter"
+    },
+    "description": {
+      "pt-BR": "Stack completa de data engineering com Apache Airflow, dbt Core e PostgreSQL — pronta para rodar com um comando",
+      "en": "Complete data engineering stack with Apache Airflow, dbt Core and PostgreSQL — ready to run with one command"
+    },
+    "version": "1.0.0",
+    "author": "GC Data",
+    "license": "MIT",
+    "paid": false,
+    "repository": "https://gcdatac.com/templates",
+    "tags": ["airflow", "dbt", "postgresql", "docker", "data-engineering"]
+  },
+
+  "prerequisites": [
+    {
+      "name": "Docker",
+      "check": "docker --version",
+      "required": true,
+      "install_url": {
+        "Windows": "https://docs.docker.com/desktop/install/windows-install/",
+        "Darwin": "https://docs.docker.com/desktop/install/mac-install/",
+        "Linux": "https://docs.docker.com/engine/install/"
+      }
+    },
+    {
+      "name": "Docker Compose",
+      "check": "docker compose version",
+      "required": true,
+      "install_url": "https://docs.docker.com/compose/install/"
+    },
+    {
+      "name": "Git",
+      "check": "git --version",
+      "required": false
+    }
+  ],
+
+  "steps": [
+    {
+      "id": "database",
+      "title": {
+        "pt-BR": "Banco de Dados",
+        "en": "Database"
+      },
+      "description": {
+        "pt-BR": "Configure o PostgreSQL que serve como backend do Airflow e warehouse do dbt",
+        "en": "Configure the PostgreSQL used as Airflow backend and dbt warehouse"
+      },
+      "fields": [
+        {
+          "id": "postgres_user",
+          "type": "text",
+          "label": { "pt-BR": "Usuário", "en": "Username" },
+          "default": "airflow",
+          "required": true
+        },
+        {
+          "id": "postgres_password",
+          "type": "password",
+          "label": { "pt-BR": "Senha", "en": "Password" },
+          "placeholder": "Escolha uma senha segura",
+          "required": true,
+          "validation": {
+            "pattern": "^.{6,}$",
+            "message": { "pt-BR": "Mínimo 6 caracteres", "en": "Minimum 6 characters" }
+          }
+        },
+        {
+          "id": "postgres_db",
+          "type": "text",
+          "label": { "pt-BR": "Nome do banco", "en": "Database name" },
+          "default": "airflow",
+          "required": true
+        },
+        {
+          "id": "postgres_port",
+          "type": "number",
+          "label": { "pt-BR": "Porta", "en": "Port" },
+          "default": 5432,
+          "min": 1024,
+          "max": 65535,
+          "required": true
+        },
+        {
+          "id": "adminer_port",
+          "type": "number",
+          "label": { "pt-BR": "Porta do Adminer (SQL UI)", "en": "Adminer Port (SQL UI)" },
+          "default": 8081,
+          "min": 1024,
+          "max": 65535,
+          "required": true,
+          "help": {
+            "pt-BR": "Interface web para visualizar e consultar os dados do PostgreSQL",
+            "en": "Web interface to browse and query PostgreSQL data"
+          }
+        }
+      ]
+    },
+    {
+      "id": "airflow",
+      "title": {
+        "pt-BR": "Apache Airflow",
+        "en": "Apache Airflow"
+      },
+      "description": {
+        "pt-BR": "Configure o Airflow Webserver e o usuário admin",
+        "en": "Configure the Airflow Webserver and admin user"
+      },
+      "fields": [
+        {
+          "id": "airflow_webserver_port",
+          "type": "number",
+          "label": { "pt-BR": "Porta do Webserver", "en": "Webserver Port" },
+          "default": 8080,
+          "min": 1024,
+          "max": 65535,
+          "required": true
+        },
+        {
+          "id": "airflow_admin_user",
+          "type": "text",
+          "label": { "pt-BR": "Usuário admin", "en": "Admin username" },
+          "default": "admin",
+          "required": true
+        },
+        {
+          "id": "airflow_admin_password",
+          "type": "password",
+          "label": { "pt-BR": "Senha admin", "en": "Admin password" },
+          "placeholder": "Senha para acessar o Airflow",
+          "required": true,
+          "validation": {
+            "pattern": "^.{6,}$",
+            "message": { "pt-BR": "Mínimo 6 caracteres", "en": "Minimum 6 characters" }
+          }
+        },
+        {
+          "id": "airflow_fernet_key",
+          "type": "text",
+          "label": { "pt-BR": "Fernet Key", "en": "Fernet Key" },
+          "default": "auto",
+          "required": true,
+          "help": {
+            "pt-BR": "Deixe 'auto' para gerar automaticamente, ou cole uma chave Fernet existente",
+            "en": "Leave 'auto' to generate automatically, or paste an existing Fernet key"
+          }
+        }
+      ]
+    },
+    {
+      "id": "dbt",
+      "title": {
+        "pt-BR": "dbt Core",
+        "en": "dbt Core"
+      },
+      "description": {
+        "pt-BR": "Configure o projeto dbt que roda dentro do Airflow",
+        "en": "Configure the dbt project that runs inside Airflow"
+      },
+      "fields": [
+        {
+          "id": "dbt_project_name",
+          "type": "text",
+          "label": { "pt-BR": "Nome do projeto", "en": "Project name" },
+          "default": "analytics",
+          "required": true,
+          "validation": {
+            "pattern": "^[a-z][a-z0-9_]*$",
+            "message": { "pt-BR": "Apenas letras minúsculas, números e underscore", "en": "Only lowercase letters, numbers and underscores" }
+          }
+        },
+        {
+          "id": "dbt_schema",
+          "type": "text",
+          "label": { "pt-BR": "Schema padrão", "en": "Default schema" },
+          "default": "public",
+          "required": true
+        }
+      ]
+    }
+  ],
+
+  "config_templates": [
+    {
+      "source": "templates/.env.tpl",
+      "target": ".env",
+      "description": "Environment variables"
+    },
+    {
+      "source": "templates/docker-compose.yml.tpl",
+      "target": "docker-compose.yml",
+      "description": "Docker Compose configuration"
+    },
+    {
+      "source": "templates/dbt_project.yml.tpl",
+      "target": "src/dbt/dbt_project.yml",
+      "description": "dbt project configuration"
+    },
+    {
+      "source": "templates/profiles.yml.tpl",
+      "target": "src/dbt/profiles.yml",
+      "description": "dbt profiles configuration"
+    }
+  ],
+
+  "deploy": {
+    "test": {
+      "command_unix": "bash scripts/deploy.sh",
+      "command_windows": "powershell -ExecutionPolicy Bypass -File scripts/deploy.ps1",
+      "description": { "pt-BR": "Build, sobe containers, roda dbt e valida", "en": "Build, start containers, run dbt and validate" }
+    },
+    "cleanup": {
+      "command_unix": "bash scripts/cleanup.sh",
+      "command_windows": "powershell -ExecutionPolicy Bypass -File scripts/cleanup.ps1",
+      "description": { "pt-BR": "Remove containers e volumes", "en": "Remove containers and volumes" }
+    },
+    "phases": [
+      {
+        "id": "config",
+        "label": { "pt-BR": "Verificando configuração", "en": "Checking configuration" }
+      },
+      {
+        "id": "build",
+        "label": { "pt-BR": "Construindo imagem", "en": "Building image" },
+        "pattern": "\\[INFO\\] Building"
+      },
+      {
+        "id": "start",
+        "label": { "pt-BR": "Subindo containers", "en": "Starting containers" },
+        "pattern": "\\[INFO\\] Starting containers"
+      },
+      {
+        "id": "init",
+        "label": { "pt-BR": "Inicializando Airflow", "en": "Initializing Airflow" },
+        "pattern": "\\[INFO\\] Waiting for Airflow"
+      },
+      {
+        "id": "health",
+        "label": { "pt-BR": "Health check", "en": "Health check" },
+        "pattern": "\\[INFO\\] Waiting for Airflow Webserver"
+      },
+      {
+        "id": "dbt",
+        "label": { "pt-BR": "Executando dbt", "en": "Running dbt" },
+        "pattern": "\\[INFO\\] Running dbt"
+      }
+    ],
+    "health_checks": [
+      {
+        "name": "Airflow Webserver",
+        "url": "http://localhost:8080/health",
+        "timeout": 60,
+        "expected_status": 200
+      },
+      {
+        "name": "Adminer (SQL UI)",
+        "url": "http://localhost:8081",
+        "timeout": 15,
+        "expected_status": 200
+      }
+    ]
+  }
+}

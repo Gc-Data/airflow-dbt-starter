@@ -1,0 +1,99 @@
+{
+  "welcome": {
+    "getStarted": "Get Started",
+    "version": "Version",
+    "by": "by"
+  },
+  "prerequisites": {
+    "title": "Prerequisites Check",
+    "description": "Checking if your system has everything needed",
+    "checkAgain": "Check again",
+    "checking": "Checking...",
+    "ok": "Installed",
+    "missing": "Not found",
+    "optional": "Optional",
+    "required": "Required",
+    "install": "Install",
+    "allOk": "All set! All prerequisites are installed.",
+    "someMissing": "Some required prerequisites are missing."
+  },
+  "steps": {
+    "step": "Step",
+    "of": "of"
+  },
+  "review": {
+    "title": "Review",
+    "description": "Review your settings before proceeding",
+    "edit": "Edit",
+    "generateConfig": "Generate Config",
+    "generating": "Generating...",
+    "configGenerated": "Configuration generated successfully!",
+    "filesGenerated": "Files generated",
+    "true": "Yes",
+    "false": "No"
+  },
+  "deploy": {
+    "title": "Deploy",
+    "description": "Run and monitor the deploy of your template",
+    "testLocally": "Test Locally",
+    "deploy": "Deploy",
+    "cleanup": "Cleanup Test",
+    "running": "Running...",
+    "success": "Completed successfully!",
+    "failed": "Failed. Check the logs above.",
+    "cleanupSuccess": "Cleanup completed!",
+    "cleanupFailed": "Cleanup failed.",
+    "showLogs": "Show logs",
+    "hideLogs": "Hide logs"
+  },
+  "success": {
+    "title": "All Done!",
+    "description": "Your template has been configured and deployed successfully.",
+    "healthChecks": "Health Checks",
+    "usefulLinks": "Useful Links",
+    "documentation": "Documentation",
+    "support": "Support",
+    "rateUs": "If you liked it, rate us on GitHub",
+    "premium": "Check out our premium templates",
+    "startOver": "Start Over",
+    "viewStatus": "View Container Status"
+  },
+  "nav": {
+    "next": "Next",
+    "back": "Back",
+    "finish": "Finish"
+  },
+  "validation": {
+    "required": "Required field",
+    "invalidUrl": "Invalid URL"
+  },
+  "existingSetup": {
+    "title": "Existing Configuration Detected",
+    "description": "A previous configuration was found in this directory.",
+    "filesFound": "Files found",
+    "containersRunning": "Services are running",
+    "containersStopped": "Services are stopped",
+    "noContainers": "No containers found",
+    "checkingContainers": "Checking containers...",
+    "startServices": "Start Services",
+    "starting": "Starting...",
+    "viewStatus": "View Status",
+    "newConfig": "New Configuration",
+    "newConfigWarn": "This will delete the current configuration (.env, docker-compose.yml, profiles.yml). Do you want to continue?",
+    "confirm": "Yes, delete and reconfigure",
+    "cancel": "Cancel",
+    "stop": "Stop",
+    "restart": "Restart",
+    "viewLogs": "View Logs",
+    "hideLogs": "Hide Logs",
+    "stopping": "Stopping...",
+    "restarting": "Restarting...",
+    "service": "Service",
+    "status": "Status",
+    "ports": "Ports",
+    "running": "Running",
+    "exited": "Exited",
+    "accessAt": "Access at",
+    "refreshStatus": "Refresh"
+  }
+}

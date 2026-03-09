@@ -1,0 +1,99 @@
+{
+  "welcome": {
+    "getStarted": "Começar",
+    "version": "Versão",
+    "by": "por"
+  },
+  "prerequisites": {
+    "title": "Verificação de Pré-requisitos",
+    "description": "Verificando se seu sistema possui tudo necessário",
+    "checkAgain": "Verificar novamente",
+    "checking": "Verificando...",
+    "ok": "Instalado",
+    "missing": "Não encontrado",
+    "optional": "Opcional",
+    "required": "Obrigatório",
+    "install": "Instalar",
+    "allOk": "Tudo pronto! Todos os pré-requisitos estão instalados.",
+    "someMissing": "Alguns pré-requisitos obrigatórios estão faltando."
+  },
+  "steps": {
+    "step": "Passo",
+    "of": "de"
+  },
+  "review": {
+    "title": "Revisão",
+    "description": "Revise suas configurações antes de continuar",
+    "edit": "Editar",
+    "generateConfig": "Gerar Configuração",
+    "generating": "Gerando...",
+    "configGenerated": "Configuração gerada com sucesso!",
+    "filesGenerated": "Arquivos gerados",
+    "true": "Sim",
+    "false": "Não"
+  },
+  "deploy": {
+    "title": "Deploy",
+    "description": "Execute e monitore o deploy do seu template",
+    "testLocally": "Testar Localmente",
+    "deploy": "Deploy",
+    "cleanup": "Limpar Teste",
+    "running": "Executando...",
+    "success": "Concluído com sucesso!",
+    "failed": "Falhou. Verifique os logs acima.",
+    "cleanupSuccess": "Limpeza concluída!",
+    "cleanupFailed": "Falha na limpeza.",
+    "showLogs": "Ver logs",
+    "hideLogs": "Ocultar logs"
+  },
+  "success": {
+    "title": "Tudo Pronto!",
+    "description": "Seu template foi configurado e implantado com sucesso.",
+    "healthChecks": "Verificações de Saúde",
+    "usefulLinks": "Links Úteis",
+    "documentation": "Documentação",
+    "support": "Suporte",
+    "rateUs": "Se gostou, nos avalie no GitHub",
+    "premium": "Conheça nossos templates premium",
+    "startOver": "Recomeçar",
+    "viewStatus": "Ver Status dos Containers"
+  },
+  "nav": {
+    "next": "Próximo",
+    "back": "Voltar",
+    "finish": "Finalizar"
+  },
+  "validation": {
+    "required": "Campo obrigatório",
+    "invalidUrl": "URL inválida"
+  },
+  "existingSetup": {
+    "title": "Configuração Existente Detectada",
+    "description": "Uma configuração anterior foi encontrada neste diretório.",
+    "filesFound": "Arquivos encontrados",
+    "containersRunning": "Serviços estão rodando",
+    "containersStopped": "Serviços estão parados",
+    "noContainers": "Nenhum container encontrado",
+    "checkingContainers": "Verificando containers...",
+    "startServices": "Subir Serviços",
+    "starting": "Iniciando...",
+    "viewStatus": "Ver Status",
+    "newConfig": "Nova Configuração",
+    "newConfigWarn": "Isso vai apagar a configuração atual (.env, docker-compose.yml, profiles.yml). Deseja continuar?",
+    "confirm": "Sim, apagar e reconfigurar",
+    "cancel": "Cancelar",
+    "stop": "Parar",
+    "restart": "Reiniciar",
+    "viewLogs": "Ver Logs",
+    "hideLogs": "Ocultar Logs",
+    "stopping": "Parando...",
+    "restarting": "Reiniciando...",
+    "service": "Serviço",
+    "status": "Status",
+    "ports": "Portas",
+    "running": "Rodando",
+    "exited": "Parado",
+    "accessAt": "Acessar em",
+    "refreshStatus": "Atualizar"
+  }
+}

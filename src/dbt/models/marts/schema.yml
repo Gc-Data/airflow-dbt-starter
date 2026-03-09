@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "Customer dimension with order metrics and tier classification"
+    columns:
+      - name: customer_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
+      - name: customer_tier
+        tests:
+          - accepted_values:
+              values: ['gold', 'silver', 'bronze']
+
+  - name: fct_orders
+    description: "Orders fact table enriched with customer data"
+    columns:
+      - name: order_id
+        description: "Primary key"
+        tests:
+          - unique
+          - not_null
